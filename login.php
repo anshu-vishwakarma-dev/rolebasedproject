@@ -1,8 +1,10 @@
+<?php include_once 'config.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="<?php echo BASE_URL; ?>">
     <title>Login | Task Manager</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,7 +16,7 @@
         <h1 class="auth-title">Welcome Back</h1>
         <p class="auth-subtitle">Login to manage your tasks efficiently</p>
         
-        <form method="POST" action="login-process.php">
+        <form method="POST" action="login-process/">
             <div class="form-group">
                 <label class="form-label" for="email">Email Address</label>
                 <input type="email" name="email" id="email" class="form-input" placeholder="name@company.com" required>

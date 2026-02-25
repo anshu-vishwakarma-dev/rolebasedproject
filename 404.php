@@ -1,8 +1,10 @@
+<?php include_once 'config.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="<?php echo BASE_URL; ?>">
     <title>404 - Page Not Found | Task Manager</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -18,7 +20,7 @@
             <i class="fas fa-search" style="font-size: 3rem; color: var(--border);"></i>
         </div>
 
-        <a href="dashboard.php" class="btn btn-primary" style="text-decoration: none; display: inline-block;">
+        <a href="dashboard/" class="btn btn-primary" style="text-decoration: none; display: inline-block;">
             <i class="fas fa-arrow-left" style="margin-right: 0.5rem;"></i> Back to Dashboard
         </a>
     </div>

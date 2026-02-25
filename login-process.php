@@ -1,6 +1,7 @@
 <?php
 session_start();
 include 'db.php';
+include_once 'config.php';
 
 // Check karo ki form submit hua hai ya nahi
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -18,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['role'] = $user['role'];
 
-        header("Location: dashboard.php");
+        header("Location: " . BASE_URL . "dashboard/");
         exit();
 
     } else {

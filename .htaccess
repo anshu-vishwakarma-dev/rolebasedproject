@@ -1,1 +1,25 @@
+RewriteEngine On
+RewriteBase /role/
+
+# 1. Prevent direct access to .php files (Redirect to extensionless)
+# Example: login.php -> login/
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /role/([^/]+)\.php [NC]
+RewriteRule ^([^/]+)\.php$ $1/ [R=301,L]
+
+# 2. Force Trailing Slash for extensionless URLs
+# Example: dashboard -> dashboard/
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_URI} !(\.[a-zA-Z0-9]+)$
+RewriteCond %{REQUEST_URI} !(.*)/$
+RewriteRule ^(.*)$ /role/$1/ [L,R=301]
+
+# 3. Internally map the trailing slash URL back to the .php file
+# Example: dashboard/ -> dashboard.php
+# We check if the .php file actually exists before mapping
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)/$ $1.php [L]
+
+# Custom 404 Error Page
 ErrorDocument 404 /role/404.php
